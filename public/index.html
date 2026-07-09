@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoAI - Smart Car Recommendations</title>
+    <meta name="description" content="Discover your perfect car with the help of our AI assistant.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <h1>Auto<span>AI</span></h1>
+                <p>Find your perfect drive with intelligent recommendations. Gemini-2.5-Flash</p>
+            </div>
+            <div class="auth-section" id="auth-section">
+                <button id="login-btn" class="btn">Login</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="gallery-section" aria-label="Car Gallery">
+                <h2>Our Fleet</h2>
+                <div class="car-grid" id="car-grid">
+                    <!-- Car cards will be injected here by JS -->
+                </div>
+            </section>
+
+            <section class="chat-section" aria-label="AI Assistant">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <div class="avatar">🤖</div>
+                        <div class="title-info">
+                            <h3>AutoAdvisor</h3>
+                            <span class="status">Online</span>
+                        </div>
+                    </div>
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message ai-message">
+                            Hi there! I'm your AI AutoAdvisor. What kind of car are you looking for today? Tell me your
+                            budget, preferences, or lifestyle!
+                        </div>
+                    </div>
+                    <form class="chat-input-area" id="chat-form">
+                        <input type="text" id="user-input" placeholder="Type your preferences..." required
+                            autocomplete="off">
+                        <button type="submit" id="send-btn">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-login">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn">Sign In</button>
+                <div id="login-error" class="error-msg"></div>
+            </form>
+        </div>
+    </div>
+
+    <div id="car-modal" class="modal">
+        <div class="modal-content car-modal-content">
+            <span class="close" id="close-car">&times;</span>
+            <div id="car-details-container"></div>
+            <button id="buy-now-btn" class="btn primary-btn">Buy Now</button>
+        </div>
+    </div>
+
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-checkout">&times;</span>
+            <h2>Checkout</h2>
+            
+            <div class="checkout-summary">
+                <h3>Order Summary</h3>
+                <p id="checkout-car-name"></p>
+                <p id="checkout-car-price"></p>
+            </div>
+
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label for="address-street">Street Address</label>
+                    <input type="text" id="address-street" required placeholder="123 Main St">
+                </div>
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label for="address-city">City</label>
+                        <input type="text" id="address-city" required placeholder="New York">
+                    </div>
+                    <div class="form-group half-width">
+                        <label for="address-zip">Zip Code</label>
+                        <input type="text" id="address-zip" required placeholder="10001">
+                    </div>
+                </div>
+                <button type="submit" id="confirm-purchase-btn" class="btn primary-btn">Confirm Purchase</button>
+            </form>
+            <div id="checkout-msg"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
